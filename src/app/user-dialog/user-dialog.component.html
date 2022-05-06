@@ -1,0 +1,28 @@
+<div>
+    <h1 mat-dialog-title>New user</h1>
+    <div mat-dialog-content>
+        <div style="display: flex;flex-direction: column; margin:1rem auto; max-width: 600px; padding: 1rem;">
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.name" type="text" placeholder="Name">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.role" type="text" placeholder="Role">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.country" type="text" placeholder="Country">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.age" type="number" placeholder="Age">
+            </mat-form-field>
+
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="cancelar()">Cancel</button>
+        <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Confirm</button>
+    </div>
+</div>

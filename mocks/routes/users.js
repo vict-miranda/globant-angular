@@ -6,11 +6,24 @@
 const USERS = [
   {
     id: 1,
-    name: "John Doe",
+    name: "Victor Miranda",
+    role: 'Developer',
+    country: 'Chile',
+    age: 33
   },
   {
     id: 2,
-    name: "Jane Doe",
+    name: "John Perez",
+    role: 'UX Designer',
+    country: 'Chile',
+    age: 29,
+  },
+  {
+    id: 3,
+    name: "Catalina Jimenez",
+    role: 'Tech Lead',
+    country: 'Chile',
+    age: 32,
   },
 ];
 
