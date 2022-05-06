@@ -13,7 +13,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class AppComponent  implements OnInit {
   title = 'angular-course';
-  displayedColumns: string[] = ['id', 'name', 'role', 'country', 'age', 'star'];
+  displayedColumns: string[] = ['id', 'name', 'role', 'country', 'age', 'stars', 'star'];
   users: IUser[] = [];
   loaded: boolean = false;
 
@@ -36,14 +36,19 @@ export class AppComponent  implements OnInit {
     })
   }
 
-  openDialog() {
+  openDialog(data?: IUser) {
     const dialogo1 = this.dialog.open(UserDialogComponent, {
-      data: { }
+      data: data !== undefined ? data : {}
     });
 
     dialogo1.afterClosed().subscribe(art => {
-      if (art != undefined)
-        this.agregar(art);
+      if (art != undefined) {
+        if (data?.id != null) {
+          this.editar(data);
+        } else {
+          this.agregar(art);
+        }        
+      }        
     });
   }
 
@@ -51,6 +56,17 @@ export class AppComponent  implements OnInit {
     this.users.push({ id: this.users.length + 1, name: user.name, country: user.country, role: user.role, age: user.age });
     this.table.renderRows();
     this.snackBar.open("Created successfully", "Close", { duration: 3000 });
+  }
+
+  editar(user: IUser) {
+    for (let i=0; i <= this.users.length -1; i++) {
+      if (this.users[i].id == user.id) {
+        this.users[i] = user;
+        break;
+      }
+    }
+    this.table.renderRows();
+    this.snackBar.open("Edited successfully", "Close", { duration: 3000 });
   }
 
   borrarFila(user: IUser) {
