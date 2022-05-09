@@ -16,14 +16,22 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import { FormsModule } from '@angular/forms';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserDialogComponent
+    UserDialogComponent,
+    NavbarComponent,
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,9 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
     MatFormFieldModule,
     MatProgressSpinnerModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatGridListModule
   ],
   providers: [
     UsersService
